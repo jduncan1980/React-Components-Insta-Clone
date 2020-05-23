@@ -4,6 +4,8 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComment, faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faHeart as faHeartSolid } from '@fortawesome/free-solid-svg-icons';
+// import './Posts.css';
 
 const LikeSection = (props) => {
 	const [liked, setLiked] = useState(false);
@@ -12,7 +14,7 @@ const LikeSection = (props) => {
 			<div className='like-section' key='likes-icons-container'>
 				<div className='like-section-wrapper'>
 					<FontAwesomeIcon
-						icon={faHeart}
+						icon={liked ? faHeartSolid : faHeart}
 						onClick={() => {
 							if (liked === false) {
 								props.setLikes(props.likes + 1);
@@ -20,6 +22,7 @@ const LikeSection = (props) => {
 								props.setLikes(props.likes - 1);
 							}
 							setLiked(!liked);
+							console.log(props.liked);
 						}}
 					/>
 				</div>

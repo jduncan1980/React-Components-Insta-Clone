@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CommentSection from '../CommentSection/CommentSectionContainer';
 import LikeSection from './LikeSection';
 import PostHeader from './PostHeader';
+import Timestamp from './Timestamp';
 
 import './Posts.css';
 
 const Post = (props) => {
-	const [likes, setLikes] = useState(13);
+	const [likes, setLikes] = useState(props.post.likes);
+	const [comments, setComments] = useState(props.post.comments);
 
 	return (
 		<div className='post-border'>
@@ -24,8 +26,12 @@ const Post = (props) => {
 			<LikeSection likes={likes} setLikes={setLikes} />
 			<CommentSection
 				postId={props.post.imageUrl}
-				comments={props.post.comments}
+				post={props.post}
+				comments={comments}
+				setComments={setComments}
+				login={props.login}
 			/>
+			<Timestamp timestamp={props.post.timestamp} />
 		</div>
 	);
 };
