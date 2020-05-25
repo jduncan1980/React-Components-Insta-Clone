@@ -1,15 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext } from 'react';
+import { MainContext } from '../../contexts/mainContext';
 import Post from './Post';
 import './Posts.css';
-import dummyData from '../../dummy-data';
 
 const PostsPage = () => {
-	const [login, setLogin] = useState();
-	const [data, setData] = useState(dummyData);
-
-	useEffect(() => {
-		setLogin(prompt('What is your user name?'));
-	}, []);
+	const { login, data } = useContext(MainContext);
 
 	return (
 		<div className='posts-container-wrapper'>

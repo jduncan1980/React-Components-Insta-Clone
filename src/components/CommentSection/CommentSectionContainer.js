@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import CommentInput from './CommentInput';
 import Comment from './Comment';
 import './Comment.css';
 
 const CommentSection = (props) => {
-	// const [comments, setComments] = useState(props.comments);
-
 	return (
 		<div>
 			{props.comments.map((comment, index) => {

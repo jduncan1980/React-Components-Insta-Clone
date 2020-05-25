@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import CommentSection from '../CommentSection/CommentSectionContainer';
 import LikeSection from './LikeSection';
 import PostHeader from './PostHeader';
@@ -25,8 +25,6 @@ const Post = (props) => {
 			</div>
 			<LikeSection likes={likes} setLikes={setLikes} />
 			<CommentSection
-				postId={props.post.imageUrl}
-				post={props.post}
 				comments={comments}
 				setComments={setComments}
 				login={props.login}
