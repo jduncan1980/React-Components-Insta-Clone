@@ -13,8 +13,6 @@ const MainContextProvider = (props) => {
 			setData(dummyData);
 		} else {
 			let filtered = dummyData.filter((item) => {
-				// if (JSON.stringify(Object.values(item)).includes(searchParams))
-				// 	return item;
 				return JSON.stringify(Object.values(item)).includes(searchParams);
 			});
 			setData(filtered);
